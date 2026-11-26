@@ -39,7 +39,7 @@ header.scrolled{box-shadow:0 8px 30px rgba(232,93,4,.18)}
 .nav{height:var(--nav-h);display:flex;align-items:center;gap:18px}
 .logo{font-family:'Oswald';font-weight:700;font-size:1.5rem;letter-spacing:2px;color:var(--turf-deep);display:flex;align-items:center;gap:10px;white-space:nowrap}
 .logo b{color:var(--orange-hot)}
-.logo .nut{width:30px;height:30px;border-radius:50%;background:conic-gradient(var(--orange) 0 25%,var(--turf) 0 50%,var(--orange) 0 75%,var(--turf) 0);border:4px solid var(--asphalt);animation:spin 14s linear infinite}
+.logo .nut{width:30px;height:30px;border-radius:50%;background:conic-gradient(var(--orange) 0 25%,var(--turf) 0 50%,var(--orange) 0 75%,var(--turf) 0);border:4px solid var(--asphalt);animation:spin 14s linear infinite;cursor:pointer}
 @keyframes spin{to{transform:rotate(360deg)}}
 nav.links{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
 nav.links::-webkit-scrollbar{display:none}
@@ -55,6 +55,8 @@ nav.links a.act{color:#fff;background:var(--orange-deep)}
 .btn-turf:hover{transform:translateY(-2px);background:#0FB3A3}
 .btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--asphalt)}
 .btn-ghost:hover{background:var(--asphalt);color:var(--cream)}
+.btn-ghost-light{background:transparent;color:var(--cream);border:2px solid rgba(255,246,236,.6)}
+.btn-ghost-light:hover{background:var(--cream);color:var(--asphalt)}
 .btn-dark{background:var(--asphalt);color:var(--orange-soft)}
 .btn-dark:hover{background:#000;transform:translateY(-2px)}
 .btn-sm{padding:9px 14px;font-size:.85rem;border-radius:10px}
@@ -64,6 +66,12 @@ nav.links a.act{color:#fff;background:var(--orange-deep)}
 .burger.open span:nth-child(1){top:20px;transform:rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){top:20px;transform:rotate(-45deg)}
+/* OWNER FAB — visible only in owner mode */
+.owner-fab{display:none;position:fixed;left:24px;bottom:24px;z-index:110;width:54px;height:54px;border-radius:50%;background:var(--asphalt);color:var(--turf);border:3px solid var(--turf);font-size:1.4rem;place-items:center;box-shadow:0 10px 30px rgba(6,63,58,.4);transition:transform .2s}
+.owner-fab:hover{transform:scale(1.1);border-color:var(--orange-hot);color:var(--orange-soft)}
+.owner-fab::after{content:'владелец';position:absolute;left:60px;top:50%;transform:translateY(-50%);background:var(--asphalt);color:var(--turf);font-size:.62rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 9px;border-radius:8px;border:1px solid var(--turf);white-space:nowrap;opacity:0;transition:.2s;pointer-events:none}
+.owner-fab:hover::after{opacity:1}
+html.owner .owner-fab{display:grid}
 /* HERO */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav-h) + 40px) 0 90px;overflow:hidden;background:var(--asphalt)}
 .hero-bg{position:absolute;inset:-12% 0;background:url('garage-hero.jpg.JPG') center 30%/cover no-repeat;will-change:transform;transform:scale(1.1)}
@@ -235,18 +243,20 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
 /* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .rv.on{opacity:1;transform:none}
-/* ============ FOTO STUDIO ============ */
+/* ============ FOTO STUDIO (owner only) ============ */
 .studio{position:fixed;inset:0;z-index:400;background:var(--cream);display:none;overflow-y:auto;scrollbar-color:var(--turf) var(--cream-2)}
 .studio.open{display:block}
 .studio::-webkit-scrollbar-track{background:var(--cream-2)}
 .studio::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--turf),var(--turf-deep));border:3px solid var(--cream-2)}
 .st-head{position:sticky;top:0;z-index:5;background:var(--asphalt);color:var(--cream);padding:16px 0;border-bottom:3px solid var(--turf)}
-.st-head .wrap{display:flex;align-items:center;gap:16px}
+.st-head .wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .st-head h2{font-size:1.3rem;color:var(--orange-soft)}
-.st-head p{font-size:.8rem;color:#C9B79F;font-weight:600}
-.st-close{margin-left:auto}
+.st-head p{font-size:.8rem;color:#C9B79F;font-weight:600;max-width:640px}
+.st-head p b{color:var(--turf)}
+.st-head .btn{margin-left:auto}
+.st-head .btn + .btn{margin-left:0}
 .st-grid{display:grid;grid-template-columns:340px 1fr;gap:26px;padding:26px 0 60px;align-items:start}
-.st-side{position:sticky;top:92px;display:grid;gap:16px}
+.st-side{position:sticky;top:110px;display:grid;gap:16px}
 .st-panel{background:#fff;border:2px solid var(--line);border-radius:16px;padding:20px}
 .st-panel h3{font-size:1rem;margin-bottom:14px;color:var(--turf-deep)}
 .st-ctl{margin-bottom:14px}
@@ -309,6 +319,7 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
   .nav-cta .btn-hot{display:none}
   .svc-search{margin-left:0;width:100%}
   .svc-search input{width:100%}
+  .owner-fab{left:16px;bottom:16px}
 }
 @media(max-width:600px){
   .g-grid{grid-template-columns:1fr}
@@ -331,7 +342,7 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
 
 <header id="hdr">
   <div class="wrap nav">
-    <a class="logo" href="#top"><span class="nut"></span>ВЕЛО<b>ГАРАЖ</b></a>
+    <a class="logo" href="#top"><span class="nut" id="logoNut"></span>ВЕЛО<b>ГАРАЖ</b></a>
     <nav class="links" id="navLinks">
       <a href="#uslugi">Услуги и цены</a>
       <a href="#raboty">Работы</a>
@@ -342,7 +353,6 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
       <a href="#kontakty">Контакты</a>
     </nav>
     <div class="nav-cta">
-      <button class="btn btn-turf btn-sm" id="openStudio" title="Сжать и разложить фото по сайту">📷 Фото-студия</button>
       <a class="btn btn-hot btn-sm" href="tel:+79001234567">📞 Позвонить</a>
     </div>
     <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
@@ -398,7 +408,7 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
     </div>
     <div class="price-table rv" id="priceTable">
       <div class="prow" data-cat="to"><div><span class="cat">ТО</span><h4>Полное ТО велосипеда</h4><p>Переборка втулок, настройка трансмиссии и тормозов, смазка цепи, протяжка узлов</p></div><span class="time">1–2 дня</span><span class="price">от 2 500 ₽</span></div>
-      <div class="prow" data-cat="to"><div><span class="cat">ТО</span><h4>Переборка вилки / амортизатора</h4><p>Замена масла и пыльников, сервис воздушной камеры, настройка сэгa под вес</p></div><span class="time">2–4 дня</span><span class="price">от 3 000 ₽</span></div>
+      <div class="prow" data-cat="to"><div><span class="cat">ТО</span><h4>Переборка вилки / амортизатора</h4><p>Замена масла и пыльников, сервис воздушной камеры, настройка сэга под вес</p></div><span class="time">2–4 дня</span><span class="price">от 3 000 ₽</span></div>
       <div class="prow" data-cat="to"><div><span class="cat">ТО</span><h4>Срочный ремонт при вас</h4><p>Заплатка камеры, замена колодок, правка петуха, настройка переключателя</p></div><span class="time">15–30 мин</span><span class="price">от 300 ₽</span></div>
       <div class="prow" data-cat="to"><div><span class="cat">ТО</span><h4>Предпродажная / постпродажная подготовка</h4><p>Диагностика, настройка, мойка, полировка и фотоотчёт для объявления</p></div><span class="time">1 день</span><span class="price">от 1 800 ₽</span></div>
       <div class="prow" data-cat="wheel"><div><span class="cat">Колёса</span><h4>Сборка и спицовка колеса</h4><p>Ручная спицовка, натяжка тензометром, исправление «восьмёрок» и «яиц»</p></div><span class="time">1–2 дня</span><span class="price">от 1 500 ₽</span></div>
@@ -425,12 +435,12 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
       <p>Стена в покрышках, постеры, верстак с профинструментом. Кликай по фото — откроется крупно.</p>
     </div>
     <div class="g-grid rv" id="gGrid">
-      <figure class="g-tile" data-cap="Стена Maxxis: Assegai, DHR II, Ikon — всё в наличии"><span class="idx">01</span><img id="w1" src="garage-hero.jpg.JPG" alt="Стена покрышек Maxxis" style="object-position:20% 25%"><figcaption>Стена Maxxis — витрина наявности</figcaption></figure>
+      <figure class="g-tile" data-cap="Стена Maxxis: Assegai, DHR II, Ikon — всё в наличии"><span class="idx">01</span><img id="w1" src="garage-hero.jpg.JPG" alt="Стена покрышек Maxxis" style="object-position:20% 25%"><figcaption>Стена Maxxis — витрина наличия</figcaption></figure>
       <figure class="g-tile" data-cap="Pulp Fiction и Harley-Davidson: атмосфера гаража"><span class="idx">02</span><img id="w2" src="garage-hero.jpg.JPG" alt="Постеры в мастерской" style="object-position:82% 22%"><figcaption>Постеры — характер мастерской</figcaption></figure>
       <figure class="g-tile" data-cap="Tan-wall покрышки: классика для трейла и гравела"><span class="idx">03</span><img id="w3" src="garage-hero.jpg.JPG" alt="Покрышки с бежевой боковиной" style="object-position:30% 62%"><figcaption>Tan-wall — отдельная любовь</figcaption></figure>
       <figure class="g-tile" data-cap="Бирюзовый эндуро-байк на обслуживании"><span class="idx">04</span><img id="w4" src="garage-hero.jpg.JPG" alt="Велосипед в мастерской" style="object-position:45% 88%"><figcaption>Байк клиента на переборке</figcaption></figure>
       <figure class="g-tile" data-cap="High Roller II и Rekon Race — грязь и скорость"><span class="idx">05</span><img id="w5" src="garage-hero.jpg.JPG" alt="Модели покрышек крупно" style="object-position:55% 40%"><figcaption>Резина под любые условия</figcaption></figure>
-      <figure class="g-tile" data-cap="CST и Maxxis в коробках — заказ под клиента за 3–5 дней"><span class="idx">06</span><img id="w6" src="garage-hero.jpg.JPG" alt="Коробки с резиной" style="object-position:95% 60%"><figcaption>Склад: наличия и заказ</figcaption></figure>
+      <figure class="g-tile" data-cap="CST и Maxxis в коробках — заказ под клиента за 3–5 дней"><span class="idx">06</span><img id="w6" src="garage-hero.jpg.JPG" alt="Коробки с резиной" style="object-position:95% 60%"><figcaption>Склад: наличие и заказ</figcaption></figure>
     </div>
   </div>
 </section>
@@ -480,7 +490,7 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
 
 <section class="sec" id="garage">
   <div class="wrap gr-grid">
-    <div class="gr-photo rv" id="garageImg" role="img" aria-label="МастерскаяVELOГАРАЖ"></div>
+    <div class="gr-photo rv" id="garageImg" role="img" aria-label="Мастерская ВЕЛОГАРАЖ"></div>
     <div class="rv">
       <span class="kicker">Не сервис, а гараж</span>
       <h2 style="font-size:clamp(1.9rem,4vw,3rem)">Мы фанаты, <em style="font-style:normal;color:var(--orange-hot)">а не менеджеры</em></h2>
@@ -581,7 +591,7 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
         <div class="ct-item"><span class="ic">💬</span><div><h4>Мессенджеры</h4><p><a href="https://wa.me/79001234567" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://t.me/" target="_blank" rel="noopener">Telegram</a> — фото проблемы кидай сразу, ответим сметой</p></div></div>
         <div class="ct-item"><span class="ic">🅿️</span><div><h4>Парковка</h4><p>Место для машины и велосипеда прямо у бокса. Можно оставить байк на день.</p></div></div>
       </div>
-      <div class="ct-map"><iframe title="Карта:VELOГАРАЖ Ростов-на-Дону" src="https://yandex.ru/map-widget/v1/?ll=39.7233%2C47.2357&z=12" loading="lazy" allowfullscreen></iframe></div>
+      <div class="ct-map"><iframe title="Карта: ВЕЛОГАРАЖ Ростов-на-Дону" src="https://yandex.ru/map-widget/v1/?ll=39.7233%2C47.2357&z=12" loading="lazy" allowfullscreen></iframe></div>
     </div>
   </div>
 </section>
@@ -611,12 +621,13 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
   <div class="lb-cap" id="lbCap"></div>
 </div>
 
-<!-- ================= FOTO STUDIO ================= -->
-<div class="studio" id="studio" role="dialog" aria-modal="true" aria-label="Фото-студия">
+<!-- ================= FOTO STUDIO — owner only ================= -->
+<div class="studio" id="studio" role="dialog" aria-modal="true" aria-label="Фото-студия владельца">
   <div class="st-head">
     <div class="wrap">
-      <div><h2>📷 Фото-студия</h2><p>Кидай все фото разом (3.5–5 МБ — нормально): сожмём, разложим по слотам и отдадим ZIP для GitHub</p></div>
-      <button class="btn btn-hot btn-sm st-close" id="closeStudio">✕ Закрыть</button>
+      <div><h2>📷 Фото-студия</h2><p><b>Режим владельца.</b> Клиенты эту студию не видят: вход запоминается только в твоём браузере. Кидай все фото разом (3.5–5 МБ — нормально): сожмём, разложим по слотам и отдадим ZIP для GitHub.</p></div>
+      <button class="btn btn-sm btn-ghost-light" id="exitOwner">🚪 Выйти из режима владельца</button>
+      <button class="btn btn-hot btn-sm" id="closeStudio">✕ Закрыть</button>
     </div>
   </div>
   <div class="wrap st-grid">
@@ -721,6 +732,34 @@ tryLoad('hero',function(src){heroBg.style.backgroundImage='url("'+src+'")';});
 tryLoad('maxxis',function(src){$('#maxxisImg').style.backgroundImage='url("'+src+'")';});
 tryLoad('garage',function(src){$('#garageImg').style.backgroundImage='url("'+src+'")';});
 for(var wi=1;wi<=6;wi++){(function(n){tryLoad('work-0'+n,function(src){var im=$('#w'+n);im.src=src;im.style.display='';im.parentNode.style.backgroundImage='none';});})(wi);}
+/* ================= OWNER GATE ================= */
+var OWNER_KEY='vg_owner';
+function ownerFlag(){try{return localStorage.getItem(OWNER_KEY)==='1';}catch(e){return false;}}
+function setOwner(v){try{if(v)localStorage.setItem(OWNER_KEY,'1');else localStorage.removeItem(OWNER_KEY);}catch(e){} document.documentElement.classList.toggle('owner',!!v);}
+var studio=$('#studio');
+function openStudio(){studio.classList.add('open');document.body.style.overflow='hidden';renderSlots();}
+function closeStudio(){studio.classList.remove('open');document.body.style.overflow='';}
+$('#closeStudio').addEventListener('click',closeStudio);
+$('#exitOwner').addEventListener('click',function(){setOwner(false);closeStudio();});
+/* owner-only floating button (created always, shown only via html.owner) */
+var fab=document.createElement('button');
+fab.className='owner-fab';fab.type='button';fab.innerHTML='📷';
+fab.title='Фото-студия (режим владельца)';fab.setAttribute('aria-label','Открыть фото-студию владельца');
+fab.addEventListener('click',openStudio);
+document.body.appendChild(fab);
+/* entry 1: secret URL #studio / #foto / ?studio=1 */
+var hash=location.hash.replace('#','').toLowerCase();
+var qs=new URLSearchParams(location.search);
+if(hash==='studio'||hash==='foto'||qs.has('studio')){setOwner(true);history.replaceState(null,'',location.pathname);openStudio();}
+else{setOwner(ownerFlag());}
+/* entry 2: five quick clicks on the spinning logo nut */
+var nut=$('#logoNut'),nutClicks=0,nutTimer=null;
+nut.addEventListener('click',function(e){
+ e.preventDefault();e.stopPropagation();
+ nutClicks++;clearTimeout(nutTimer);
+ nutTimer=setTimeout(function(){nutClicks=0;},1200);
+ if(nutClicks>=5){nutClicks=0;setOwner(true);openStudio();}
+});
 /* ================= FOTO STUDIO ================= */
 var SLOTS=[
  {id:'hero',fn:'hero',label:'Главный экран (фон)',asp:16/9,rec:'1600×900'},
@@ -734,9 +773,6 @@ var SLOTS=[
  {id:'w6',fn:'work-06',label:'Галерея 6',asp:1,rec:'900×900'}
 ];
 var photos=[],pid=0,settings={q:78,w:1600,s:118,b:104,c:108,f:'center',fmt:'jpeg'},procTimer=null;
-var studio=$('#studio');
-$('#openStudio').addEventListener('click',function(){studio.classList.add('open');document.body.style.overflow='hidden';renderSlots();});
-$('#closeStudio').addEventListener('click',function(){studio.classList.remove('open');document.body.style.overflow='';});
 /* controls */
 function bindRange(id,out,key,suf){var el=$('#'+id);el.addEventListener('input',function(){settings[key]=+el.value;$('#'+out).textContent=el.value+(suf||'');schedule();});}
 bindRange('cQ','oQ','q','');bindRange('cW','oW','w','');bindRange('cS','oS','s','%');bindRange('cB','oB','b','%');bindRange('cC','oC','c','%');
@@ -762,7 +798,6 @@ function addFiles(list){
 function autoAssign(){
  var order=['hero','maxxis','garage','w1','w2','w3','w4','w5','w6'];
  photos.forEach(function(p,i){if(!p.slot)p.slot=order[Math.min(i,order.length-1)];});
- /* ensure uniqueness: later duplicates push earlier ones to free work slots */
  var used={};photos.forEach(function(p){if(used[p.slot]){var free=order.filter(function(s){return !used[s];})[0];p.slot=free||p.slot;}used[p.slot]=true;});
 }
 $('#btnAuto').addEventListener('click',function(){photos.forEach(function(p){p.slot=null;});autoAssign();renderCards();renderSlots();schedule();});
@@ -857,7 +892,7 @@ $('#btnZip').addEventListener('click',function(){
   SLOTS.forEach(function(s){var p=filled.filter(function(x){return x.slot===s.id;})[0];manifest+=s.fn+'.'+(settings.fmt==='webp'?'webp':'jpg')+'  →  '+s.label+'  (рекоменд. '+s.rec+')  '+(p?'✓ '+fmtKB(p.size):'— пусто, останется текущее фото')+'\n';});
   manifest+='\nКак залить: распакуй ZIP и загрузи файлы в репозиторий kruzhkin/velomaster рядом с index.html (Add file → Upload files → Commit). Сайт подхватит их сам.\nНастройки: качество '+settings.q+', ширина ≤'+settings.w+'px, насыщенность '+settings.s+'%, яркость '+settings.b+'%, контраст '+settings.c+'%, фокус '+settings.f+', формат '+settings.fmt+'.\n';
   files.push({name:'PHOTO-PLAN.txt',data:new TextEncoder().encode(manifest)});
-  downloadBlob(makeZip(files),'velogaraž-photos.zip'.replace('ž','zh'));
+  downloadBlob(makeZip(files),'velogarazh-photos.zip');
   btn.disabled=false;btn.textContent='📦 Скачать ZIP для GitHub';
  }).catch(function(){btn.disabled=false;btn.textContent='📦 Скачать ZIP для GitHub';alert('Не удалось собрать ZIP. Попробуй скачать фото по одному.');});
 });
