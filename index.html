@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ВЕЛОГАРАЖ · Ростов-на-Дону — ремонт, покрышки Maxxis, хранение, бронеплёнка</title>
-<meta name="description" content="Гаражная веломастерская в Ростове-на-Дону: ремонт и ТО, покрышки Maxxis, сборка колёс, бронеплёнка, сезонное хранение, помощь с покупкой, отправка по РФ.">
+<title>ВЕЛОЦИКЛ · Ростов-на-Дону — ремонт велосипедов, покрышки Maxxis, хранение, бронеплёнка</title>
+<meta name="description" content="ВЕЛОЦИКЛ — гаражная веломастерская в Ростове-на-Дону: ремонт и ТО, покрышки Maxxis, сборка колёс, бронеплёнка, сезонное хранение, помощь с покупкой, отправка по РФ.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='92' fill='%23171310'/%3E%3Ccircle cx='100' cy='100' r='74' fill='none' stroke='%23FF7A1A' stroke-width='10'/%3E%3Crect x='0' y='78' width='200' height='44' rx='8' fill='%23FF4D00'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,7 +17,8 @@
   --cream:#FFF6EC; --cream-2:#FBEAD8; --paper:#FFFFFF;
   --ink:#171310; --muted:#5C4B3A; --line:#F0D9BF;
   --ok:#2FBF71; --warn:#FFB020; --bad:#E63946; --info:#2E9BDA;
-  --nav-h:72px; --rad:18px;
+  --max-a:#2E7BFF; --max-b:#7A4DFF; --wa:#25D366; --tg:#229ED9;
+  --nav-h:76px; --rad:18px;
   --shadow:0 14px 40px rgba(232,93,4,.14);
   --tread:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect width='120' height='120' fill='%23221A13'/%3E%3Cg fill='%23FF7A1A'%3E%3Crect x='10' y='12' width='26' height='14' rx='4'/%3E%3Crect x='52' y='26' width='26' height='14' rx='4'/%3E%3Crect x='92' y='12' width='26' height='14' rx='4'/%3E%3Crect x='10' y='62' width='26' height='14' rx='4'/%3E%3Crect x='52' y='76' width='26' height='14' rx='4'/%3E%3Crect x='92' y='62' width='26' height='14' rx='4'/%3E%3C/g%3E%3Cg fill='%2317C3B2' opacity='.5'%3E%3Crect x='30' y='44' width='18' height='10' rx='3'/%3E%3Crect x='72' y='94' width='18' height='10' rx='3'/%3E%3C/g%3E%3C/svg%3E");
 }
@@ -33,20 +35,38 @@ img{display:block;max-width:100%}
 button{font-family:inherit;cursor:pointer}
 .wrap{max-width:1220px;margin:0 auto;padding:0 22px}
 section{scroll-margin-top:calc(var(--nav-h) + 14px)}
-/* NAV */
-header{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:120;background:rgba(255,246,236,.92);backdrop-filter:blur(14px);border-bottom:2px solid var(--orange);transition:box-shadow .3s}
-header.scrolled{box-shadow:0 8px 30px rgba(232,93,4,.18)}
-.nav{height:var(--nav-h);display:flex;align-items:center;gap:18px}
-.logo{font-family:'Oswald';font-weight:700;font-size:1.5rem;letter-spacing:2px;color:var(--turf-deep);display:flex;align-items:center;gap:10px;white-space:nowrap}
-.logo b{color:var(--orange-hot)}
-.logo .nut{width:30px;height:30px;border-radius:50%;background:conic-gradient(var(--orange) 0 25%,var(--turf) 0 50%,var(--orange) 0 75%,var(--turf) 0);border:4px solid var(--asphalt);animation:spin 14s linear infinite;cursor:pointer}
+/* LOGO BADGE */
+.badge{width:100%;height:100%;display:block}
+.b-teeth{fill:var(--asphalt);transform-origin:100px 100px;animation:spin 46s linear infinite}
+.b-disc{fill:var(--asphalt-2)}
+.b-ring1{fill:none;stroke:var(--orange);stroke-width:6}
+.b-ring2{fill:none;stroke:var(--turf);stroke-width:4}
+.b-ring3{fill:none;stroke:var(--orange-soft);stroke-width:3;opacity:.85}
+.b-band{fill:var(--orange-hot);stroke:var(--asphalt);stroke-width:3}
+.b-text{font-family:'Oswald',sans-serif;font-size:30px;font-weight:700;letter-spacing:2px;fill:var(--cream);text-anchor:middle}
 @keyframes spin{to{transform:rotate(360deg)}}
+.logo-badge{width:48px;height:48px;flex:0 0 48px}
+.logo-badge img{width:100%;height:100%;object-fit:contain}
+/* NAV */
+header{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:120;background:rgba(255,246,236,.93);backdrop-filter:blur(14px);border-bottom:2px solid var(--orange);transition:box-shadow .3s}
+header.scrolled{box-shadow:0 8px 30px rgba(232,93,4,.18)}
+.nav{height:var(--nav-h);display:flex;align-items:center;gap:16px}
+.logo{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.logo-txt{font-family:'Oswald';font-weight:700;font-size:1.28rem;letter-spacing:1.6px;color:var(--asphalt);line-height:1.05}
+.logo-txt small{display:block;font-family:'Inter';font-size:.6rem;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:none}
 nav.links{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
 nav.links::-webkit-scrollbar{display:none}
-nav.links a{font-weight:700;font-size:.86rem;padding:8px 11px;border-radius:10px;color:var(--muted);white-space:nowrap;transition:.25s}
+nav.links a{font-weight:700;font-size:.85rem;padding:8px 11px;border-radius:10px;color:var(--muted);white-space:nowrap;transition:.25s}
 nav.links a:hover{color:var(--orange-deep);background:var(--cream-2)}
 nav.links a.act{color:#fff;background:var(--orange-deep)}
-.nav-cta{display:flex;gap:8px;align-items:center}
+.nav-soc{display:flex;gap:8px;align-items:center}
+.nav-soc a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 16px rgba(23,19,16,.2)}
+.nav-soc a:hover{transform:translateY(-3px)}
+.nav-soc a svg{width:20px;height:20px;fill:currentColor}
+.nav-soc .s-max{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--max-a),var(--max-b));font-family:'Oswald';font-weight:700;font-size:.98rem;letter-spacing:.5px}
+.nav-soc .s-wa{background:var(--wa)}
+.nav-soc .s-tg{background:var(--tg)}
+.nav-soc .s-tel{background:var(--orange-hot)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:none;border-radius:12px;font-weight:800;font-size:.95rem;padding:12px 20px;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap}
 .btn:active{transform:scale(.97)}
 .btn-hot{background:var(--orange-hot);color:#fff;box-shadow:0 8px 22px rgba(255,77,0,.35)}
@@ -55,10 +75,6 @@ nav.links a.act{color:#fff;background:var(--orange-deep)}
 .btn-turf:hover{transform:translateY(-2px);background:#0FB3A3}
 .btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--asphalt)}
 .btn-ghost:hover{background:var(--asphalt);color:var(--cream)}
-.btn-ghost-light{background:transparent;color:var(--cream);border:2px solid rgba(255,246,236,.6)}
-.btn-ghost-light:hover{background:var(--cream);color:var(--asphalt)}
-.btn-dark{background:var(--asphalt);color:var(--orange-soft)}
-.btn-dark:hover{background:#000;transform:translateY(-2px)}
 .btn-sm{padding:9px 14px;font-size:.85rem;border-radius:10px}
 .burger{display:none;margin-left:auto;background:none;border:none;width:42px;height:42px;position:relative}
 .burger span{position:absolute;left:9px;right:9px;height:3px;border-radius:2px;background:var(--asphalt);transition:.3s}
@@ -66,12 +82,18 @@ nav.links a.act{color:#fff;background:var(--orange-deep)}
 .burger.open span:nth-child(1){top:20px;transform:rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){top:20px;transform:rotate(-45deg)}
-/* OWNER FAB — visible only in owner mode */
-.owner-fab{display:none;position:fixed;left:24px;bottom:24px;z-index:110;width:54px;height:54px;border-radius:50%;background:var(--asphalt);color:var(--turf);border:3px solid var(--turf);font-size:1.4rem;place-items:center;box-shadow:0 10px 30px rgba(6,63,58,.4);transition:transform .2s}
-.owner-fab:hover{transform:scale(1.1);border-color:var(--orange-hot);color:var(--orange-soft)}
-.owner-fab::after{content:'владелец';position:absolute;left:60px;top:50%;transform:translateY(-50%);background:var(--asphalt);color:var(--turf);font-size:.62rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 9px;border-radius:8px;border:1px solid var(--turf);white-space:nowrap;opacity:0;transition:.2s;pointer-events:none}
-.owner-fab:hover::after{opacity:1}
-html.owner .owner-fab{display:grid}
+/* CONTACT DOCK (right, MAX bigger) */
+.dock{position:fixed;right:22px;bottom:22px;z-index:115;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.dock a{position:relative;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 10px 26px rgba(23,19,16,.3);transition:transform .2s}
+.dock a:hover{transform:translateX(-4px) scale(1.06)}
+.dock a svg{width:26px;height:26px;fill:currentColor}
+.dock a::after{content:attr(data-tip);position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%);background:var(--asphalt);color:var(--cream);font-size:.68rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:6px 11px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:.2s;border:1px solid var(--orange)}
+.dock a:hover::after{opacity:1}
+.dock .d-max{width:70px;height:70px;border-radius:24px;background:linear-gradient(135deg,var(--max-a),var(--max-b));font-family:'Oswald';font-weight:700;font-size:1.2rem;letter-spacing:1px;animation:maxpulse 2.6s infinite}
+.dock .d-wa{background:var(--wa)}
+.dock .d-tg{background:var(--tg)}
+.dock .d-tel{background:var(--orange-hot)}
+@keyframes maxpulse{0%,100%{box-shadow:0 10px 26px rgba(46,123,255,.4)}50%{box-shadow:0 10px 42px rgba(122,77,255,.75)}}
 /* HERO */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:calc(var(--nav-h) + 40px) 0 90px;overflow:hidden;background:var(--asphalt)}
 .hero-bg{position:absolute;inset:-12% 0;background:url('garage-hero.jpg.JPG') center 30%/cover no-repeat;will-change:transform;transform:scale(1.1)}
@@ -79,8 +101,10 @@ html.owner .owner-fab{display:grid}
 .hero-veil{position:absolute;inset:0;background:
   radial-gradient(900px 520px at 12% 8%,rgba(255,122,26,.88),rgba(255,122,26,.42) 45%,transparent 70%),
   radial-gradient(760px 500px at 88% 92%,rgba(23,195,178,.55),transparent 65%),
-  linear-gradient(100deg,rgba(255,122,26,.9) 0%,rgba(255,159,67,.66) 42%,rgba(23,19,16,.38) 100%)}
+  linear-gradient(100deg,rgba(255,122,26,.9) 0%,rgba(255,159,67,.66) 42%,rgba(23,19,16,.42) 100%)}
 .hero-grain{position:absolute;inset:0;opacity:.16;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+.hero-badge{position:absolute;right:3%;top:50%;transform:translateY(-50%);width:min(34vw,400px);aspect-ratio:1;z-index:1;filter:drop-shadow(0 0 46px rgba(255,122,26,.4))}
+.hero-badge img{width:100%;height:100%;object-fit:contain}
 .hero .wrap{position:relative;z-index:2}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--asphalt);color:var(--orange-soft);font-weight:800;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;padding:9px 16px;border-radius:999px;border:2px solid var(--orange)}
 .hero h1{font-size:clamp(2.6rem,6.4vw,5rem);color:#fff;margin:22px 0 18px;text-shadow:0 4px 30px rgba(23,19,16,.45)}
@@ -115,6 +139,7 @@ html.owner .owner-fab{display:grid}
 .chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:8px 15px;font-weight:700;font-size:.84rem;color:var(--muted);transition:.2s}
 .chip:hover{border-color:var(--turf)}
 .chip.act{background:var(--turf-deep);border-color:var(--turf-deep);color:#fff}
+.chip sup{font-size:.66rem;margin-left:4px;opacity:.8}
 .svc-search{margin-left:auto;position:relative}
 .svc-search input{border:2px solid var(--line);border-radius:12px;padding:11px 14px 11px 40px;font:inherit;font-weight:600;width:250px;background:#fff;transition:.2s}
 .svc-search input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,122,26,.18)}
@@ -132,22 +157,27 @@ html.owner .owner-fab{display:grid}
 .p-empty{padding:34px;text-align:center;font-weight:700;color:var(--muted);display:none}
 .svc-note{margin-top:16px;font-size:.86rem;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .svc-note b{color:var(--turf-deep)}
-/* GALLERY */
+/* GALLERY with subsections */
 #raboty{background:var(--asphalt);color:var(--cream)}
 #raboty .kicker{color:var(--turf)}
 #raboty .sec-head p{color:#C9B79F}
+#raboty .chips{margin-bottom:22px}
+#raboty .chip{background:rgba(255,246,236,.08);border-color:rgba(255,159,67,.35);color:#C9B79F}
+#raboty .chip:hover{border-color:var(--turf);color:var(--turf)}
+#raboty .chip.act{background:var(--orange-hot);border-color:var(--orange-hot);color:#fff}
 .g-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .g-tile{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1;background:var(--asphalt-3);border:2px solid var(--asphalt-3);cursor:zoom-in;transition:transform .3s,border-color .3s}
 .g-tile:hover{transform:translateY(-5px);border-color:var(--orange)}
 .g-tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .g-tile:hover img{transform:scale(1.08)}
-.g-tile figcaption{position:absolute;inset:auto 0 0 0;padding:38px 14px 12px;font-size:.82rem;font-weight:700;background:linear-gradient(transparent,rgba(23,19,16,.9));color:var(--cream)}
+.g-tile figcaption{position:absolute;inset:auto 0 0 0;padding:38px 14px 12px;font-size:.82rem;font-weight:700;background:linear-gradient(transparent,rgba(23,19,16,.92));color:var(--cream)}
 .g-tile .idx{position:absolute;top:10px;left:10px;background:var(--orange-hot);color:#fff;font-family:'Oswald';font-weight:700;font-size:.8rem;padding:3px 9px;border-radius:8px}
+.g-tile .g-cat{position:absolute;top:10px;right:10px;background:var(--turf);color:var(--turf-ink);font-size:.62rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;padding:4px 8px;border-radius:7px}
 /* LIGHTBOX */
 .lb{position:fixed;inset:0;z-index:300;background:rgba(12,9,6,.94);display:none;align-items:center;justify-content:center;padding:30px}
 .lb.open{display:flex}
 .lb img{max-width:min(1100px,92vw);max-height:82vh;border-radius:14px;border:3px solid var(--orange);box-shadow:0 30px 90px rgba(0,0,0,.6)}
-.lb-cap{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:var(--cream);font-weight:700;background:rgba(23,19,16,.8);padding:8px 18px;border-radius:999px;border:1px solid var(--orange)}
+.lb-cap{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:var(--cream);font-weight:700;background:rgba(23,19,16,.85);padding:8px 18px;border-radius:999px;border:1px solid var(--orange);max-width:90vw;text-align:center}
 .lb button{position:absolute;background:var(--orange-hot);color:#fff;border:none;width:52px;height:52px;border-radius:50%;font-size:1.3rem;font-weight:800;transition:.2s}
 .lb button:hover{background:var(--turf);color:var(--turf-ink)}
 .lb-prev{left:22px;top:50%;transform:translateY(-50%)}
@@ -223,6 +253,10 @@ details.inf[open] summary .ar{transform:rotate(45deg);background:var(--turf);col
 .ct-item{display:flex;gap:16px;background:#fff;border:2px solid var(--line);border-radius:16px;padding:18px;transition:.2s}
 .ct-item:hover{border-color:var(--orange);transform:translateX(4px)}
 .ct-item .ic{flex:0 0 50px;height:50px;border-radius:14px;background:var(--orange-hot);color:#fff;display:grid;place-items:center;font-size:1.4rem}
+.ct-item .ic svg{width:24px;height:24px;fill:currentColor}
+.ct-item .ic-max{background:linear-gradient(135deg,var(--max-a),var(--max-b));font-family:'Oswald';font-weight:700;font-size:1rem}
+.ct-item .ic-wa{background:var(--wa)}
+.ct-item .ic-tg{background:var(--tg)}
 .ct-item h4{font-size:.98rem;margin-bottom:3px}
 .ct-item p,.ct-item a{font-size:.92rem;color:var(--muted);font-weight:600}
 .ct-item a:hover{color:var(--orange-deep)}
@@ -231,95 +265,39 @@ details.inf[open] summary .ar{transform:rotate(45deg);background:var(--turf);col
 /* FOOTER */
 footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
 .ft{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid var(--asphalt-3)}
-.ft .logo{color:var(--turf)}
-.ft-soc{display:flex;gap:10px}
-.ft-soc a{width:44px;height:44px;border-radius:50%;background:var(--asphalt-3);display:grid;place-items:center;font-size:1.15rem;transition:.25s}
+.ft .logo-txt{color:var(--cream)}
+.ft .logo-txt small{color:#C9B79F}
+.ft .logo-badge{width:64px;height:64px;flex:0 0 64px}
+.ft-soc{display:flex;gap:10px;align-items:center}
+.ft-soc a{width:46px;height:46px;border-radius:50%;background:var(--asphalt-3);display:grid;place-items:center;font-size:1.15rem;transition:.25s;color:#fff}
+.ft-soc a svg{width:22px;height:22px;fill:currentColor}
 .ft-soc a:hover{background:var(--orange-hot);transform:translateY(-4px)}
+.ft-soc .f-max{width:56px;height:56px;border-radius:18px;background:linear-gradient(135deg,var(--max-a),var(--max-b));font-family:'Oswald';font-weight:700;font-size:1rem}
+.ft-soc .f-max:hover{background:linear-gradient(135deg,var(--max-b),var(--max-a))}
 .ft-copy{padding-top:20px;font-size:.82rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-/* FLOAT WA */
-.wa{position:fixed;right:24px;bottom:24px;z-index:110;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;font-size:1.7rem;box-shadow:0 10px 30px rgba(37,211,102,.5);animation:wa 2.4s infinite;transition:transform .2s}
-.wa:hover{transform:scale(1.1)}
-@keyframes wa{0%,100%{box-shadow:0 10px 30px rgba(37,211,102,.45)}50%{box-shadow:0 10px 44px rgba(37,211,102,.8)}}
 /* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .rv.on{opacity:1;transform:none}
-/* ============ FOTO STUDIO (owner only) ============ */
-.studio{position:fixed;inset:0;z-index:400;background:var(--cream);display:none;overflow-y:auto;scrollbar-color:var(--turf) var(--cream-2)}
-.studio.open{display:block}
-.studio::-webkit-scrollbar-track{background:var(--cream-2)}
-.studio::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--turf),var(--turf-deep));border:3px solid var(--cream-2)}
-.st-head{position:sticky;top:0;z-index:5;background:var(--asphalt);color:var(--cream);padding:16px 0;border-bottom:3px solid var(--turf)}
-.st-head .wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.st-head h2{font-size:1.3rem;color:var(--orange-soft)}
-.st-head p{font-size:.8rem;color:#C9B79F;font-weight:600;max-width:640px}
-.st-head p b{color:var(--turf)}
-.st-head .btn{margin-left:auto}
-.st-head .btn + .btn{margin-left:0}
-.st-grid{display:grid;grid-template-columns:340px 1fr;gap:26px;padding:26px 0 60px;align-items:start}
-.st-side{position:sticky;top:110px;display:grid;gap:16px}
-.st-panel{background:#fff;border:2px solid var(--line);border-radius:16px;padding:20px}
-.st-panel h3{font-size:1rem;margin-bottom:14px;color:var(--turf-deep)}
-.st-ctl{margin-bottom:14px}
-.st-ctl label{display:flex;justify-content:space-between;font-size:.74rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.st-ctl label output{color:var(--orange-deep);font-weight:800}
-.st-ctl input[type=range]{width:100%;appearance:none;height:8px;border-radius:6px;background:linear-gradient(90deg,var(--turf),var(--orange));outline:none}
-.st-ctl input[type=range]::-webkit-slider-thumb{appearance:none;width:22px;height:22px;border-radius:50%;background:var(--asphalt);border:4px solid var(--orange-hot);cursor:grab;transition:.15s}
-.st-ctl input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);border-color:var(--turf)}
-.st-ctl input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--asphalt);border:4px solid var(--orange-hot);cursor:grab}
-.st-ctl select{width:100%;font:inherit;font-weight:700;padding:9px 10px;border-radius:10px;border:2px solid var(--line);background:#fff}
-.st-btns{display:grid;gap:8px}
-.st-total{font-size:.84rem;font-weight:700;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-.st-total b{font-family:'Oswald';font-size:1.2rem}
-.st-total b.ok{color:var(--ok)}.st-total b.warn{color:var(--warn)}.st-total b.bad{color:var(--bad)}
-.slotboard{display:grid;gap:7px}
-.slot{display:flex;align-items:center;gap:10px;font-size:.78rem;font-weight:700;border:2px dashed var(--line);border-radius:10px;padding:8px 10px;color:var(--muted);transition:.2s}
-.slot.filled{border-style:solid;border-color:var(--turf);color:var(--turf-deep);background:rgba(23,195,178,.08)}
-.slot .fn{font-family:ui-monospace,Consolas,monospace;font-size:.74rem;color:var(--orange-deep)}
-.slot .st{margin-left:auto;font-size:.66rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase}
-.slot.filled .st{color:var(--ok)}
-.st-preview{aspect-ratio:16/9;border-radius:12px;background:var(--asphalt) var(--tread);background-size:160px;overflow:hidden;border:2px solid var(--asphalt);position:relative}
-.st-preview img{width:100%;height:100%;object-fit:cover}
-.st-preview span{position:absolute;left:8px;bottom:8px;background:rgba(23,19,16,.8);color:var(--orange-soft);font-size:.66rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 8px;border-radius:6px}
-.drop{border:3px dashed var(--orange);border-radius:var(--rad);background:#fff;padding:44px 26px;text-align:center;transition:.25s;cursor:pointer}
-.drop.over{border-color:var(--turf);background:rgba(23,195,178,.1);transform:scale(1.01)}
-.drop .big{font-size:2.6rem}
-.drop h3{font-size:1.3rem;margin:10px 0 6px}
-.drop p{color:var(--muted);font-weight:600;font-size:.9rem;max-width:520px;margin:0 auto}
-.drop p b{color:var(--orange-deep)}
-.st-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:20px}
-.ph-card{background:#fff;border:2px solid var(--line);border-radius:16px;overflow:hidden;transition:.2s}
-.ph-card:hover{border-color:var(--orange)}
-.ph-thumb{aspect-ratio:4/3;background:var(--cream-2);position:relative}
-.ph-thumb img{width:100%;height:100%;object-fit:cover}
-.ph-size{position:absolute;top:8px;right:8px;font-size:.7rem;font-weight:800;padding:4px 9px;border-radius:8px;color:#fff}
-.ph-size.ok{background:var(--ok)}.ph-size.warn{background:var(--warn);color:var(--asphalt)}.ph-size.bad{background:var(--bad)}
-.ph-body{padding:14px}
-.ph-name{font-size:.78rem;font-weight:700;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:10px}
-.ph-body select{width:100%;font:inherit;font-weight:700;font-size:.84rem;padding:8px;border-radius:9px;border:2px solid var(--line);margin-bottom:10px}
-.ph-actions{display:flex;gap:8px}
-.ph-actions .btn{flex:1}
-.ph-del{flex:0 0 40px;background:var(--cream-2);border:none;border-radius:10px;font-size:1rem;transition:.2s}
-.ph-del:hover{background:var(--bad);color:#fff}
-.st-hint{margin-top:18px;font-size:.84rem;color:var(--muted);font-weight:600;background:#fff;border:2px solid var(--line);border-left:5px solid var(--turf);border-radius:12px;padding:14px 16px}
-.st-hint b{color:var(--turf-deep)}
 /* RESPONSIVE */
+@media(max-width:1100px){.nav-soc{display:none}}
 @media(max-width:1020px){
   .mx-grid,.gr-grid,.ct-grid{grid-template-columns:1fr}
   .g-grid{grid-template-columns:1fr 1fr}
   .dl-grid{grid-template-columns:1fr 1fr}
   .inf-grid{grid-template-columns:1fr}
-  .st-grid{grid-template-columns:1fr}
-  .st-side{position:static}
+  .hero-badge{display:none}
 }
 @media(max-width:860px){
   nav.links{position:fixed;top:var(--nav-h);left:0;right:0;background:var(--cream);flex-direction:column;padding:16px 22px;border-bottom:3px solid var(--orange);display:none;margin:0}
   nav.links.open{display:flex}
   nav.links a{font-size:1rem;padding:12px}
   .burger{display:block}
-  .nav-cta .btn-hot{display:none}
   .svc-search{margin-left:0;width:100%}
   .svc-search input{width:100%}
-  .owner-fab{left:16px;bottom:16px}
+  .dock{right:14px;bottom:14px}
+  .dock a{width:48px;height:48px}
+  .dock a svg{width:23px;height:23px}
+  .dock .d-max{width:62px;height:62px;border-radius:20px;font-size:1.05rem}
 }
 @media(max-width:600px){
   .g-grid{grid-template-columns:1fr}
@@ -330,6 +308,7 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
   .hero-cta .btn{width:100%}
   .sec{padding:64px 0}
   .inf-body{padding-left:22px}
+  .logo-txt small{display:none}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -342,7 +321,23 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
 
 <header id="hdr">
   <div class="wrap nav">
-    <a class="logo" href="#top"><span class="nut" id="logoNut"></span>ВЕЛО<b>ГАРАЖ</b></a>
+    <a class="logo" href="#top" aria-label="ВЕЛОЦИКЛ — на главную">
+      <span class="logo-badge">
+        <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+          <defs><path id="tooth" d="M92 3 h16 l4 16 h-24 z"/></defs>
+          <g class="b-teeth">
+            <use href="#tooth"/><use href="#tooth" transform="rotate(18 100 100)"/><use href="#tooth" transform="rotate(36 100 100)"/><use href="#tooth" transform="rotate(54 100 100)"/><use href="#tooth" transform="rotate(72 100 100)"/><use href="#tooth" transform="rotate(90 100 100)"/><use href="#tooth" transform="rotate(108 100 100)"/><use href="#tooth" transform="rotate(126 100 100)"/><use href="#tooth" transform="rotate(144 100 100)"/><use href="#tooth" transform="rotate(162 100 100)"/><use href="#tooth" transform="rotate(180 100 100)"/><use href="#tooth" transform="rotate(198 100 100)"/><use href="#tooth" transform="rotate(216 100 100)"/><use href="#tooth" transform="rotate(234 100 100)"/><use href="#tooth" transform="rotate(252 100 100)"/><use href="#tooth" transform="rotate(270 100 100)"/><use href="#tooth" transform="rotate(288 100 100)"/><use href="#tooth" transform="rotate(306 100 100)"/><use href="#tooth" transform="rotate(324 100 100)"/><use href="#tooth" transform="rotate(342 100 100)"/>
+          </g>
+          <circle class="b-disc" cx="100" cy="100" r="84"/>
+          <circle class="b-ring1" cx="100" cy="100" r="74"/>
+          <circle class="b-ring2" cx="100" cy="100" r="56"/>
+          <circle class="b-ring3" cx="100" cy="100" r="40"/>
+          <rect class="b-band" x="4" y="80" width="192" height="40" rx="6"/>
+          <text class="b-text" x="100" y="109">ВЕЛОЦИКЛ</text>
+        </svg>
+      </span>
+      <span class="logo-txt">ВЕЛОЦИКЛ<small>гаражная веломастерская · Ростов-на-Дону</small></span>
+    </a>
     <nav class="links" id="navLinks">
       <a href="#uslugi">Услуги и цены</a>
       <a href="#raboty">Работы</a>
@@ -352,8 +347,11 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
       <a href="#dostavka">Доставка</a>
       <a href="#kontakty">Контакты</a>
     </nav>
-    <div class="nav-cta">
-      <a class="btn btn-hot btn-sm" href="tel:+79001234567">📞 Позвонить</a>
+    <div class="nav-soc">
+      <a class="s-max" href="https://max.ru/" target="_blank" rel="noopener" aria-label="MAX" title="MAX">MAX</a>
+      <a class="s-wa" href="https://wa.me/79001234567" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.9-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.7.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4.1.2.1.7-.1 1.3Z"/></svg></a>
+      <a class="s-tg" href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6 8.4-7.6c.4-.3-.1-.5-.6-.2L7.5 13.4 3 12c-1-.3-1-1 .2-1.4L20.6 3.2c.8-.3 1.5.2 1.3 1.4Z"/></svg></a>
+      <a class="s-tel" href="tel:+79001234567" aria-label="Позвонить" title="Позвонить"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></a>
     </div>
     <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
@@ -363,8 +361,21 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-veil"></div>
   <div class="hero-grain"></div>
+  <div class="hero-badge" id="heroBadge" aria-hidden="true">
+    <svg class="badge" viewBox="0 0 200 200">
+      <g class="b-teeth">
+        <use href="#tooth"/><use href="#tooth" transform="rotate(18 100 100)"/><use href="#tooth" transform="rotate(36 100 100)"/><use href="#tooth" transform="rotate(54 100 100)"/><use href="#tooth" transform="rotate(72 100 100)"/><use href="#tooth" transform="rotate(90 100 100)"/><use href="#tooth" transform="rotate(108 100 100)"/><use href="#tooth" transform="rotate(126 100 100)"/><use href="#tooth" transform="rotate(144 100 100)"/><use href="#tooth" transform="rotate(162 100 100)"/><use href="#tooth" transform="rotate(180 100 100)"/><use href="#tooth" transform="rotate(198 100 100)"/><use href="#tooth" transform="rotate(216 100 100)"/><use href="#tooth" transform="rotate(234 100 100)"/><use href="#tooth" transform="rotate(252 100 100)"/><use href="#tooth" transform="rotate(270 100 100)"/><use href="#tooth" transform="rotate(288 100 100)"/><use href="#tooth" transform="rotate(306 100 100)"/><use href="#tooth" transform="rotate(324 100 100)"/><use href="#tooth" transform="rotate(342 100 100)"/>
+      </g>
+      <circle class="b-disc" cx="100" cy="100" r="84"/>
+      <circle class="b-ring1" cx="100" cy="100" r="74"/>
+      <circle class="b-ring2" cx="100" cy="100" r="56"/>
+      <circle class="b-ring3" cx="100" cy="100" r="40"/>
+      <rect class="b-band" x="4" y="80" width="192" height="40" rx="6"/>
+      <text class="b-text" x="100" y="109">ВЕЛОЦИКЛ</text>
+    </svg>
+  </div>
   <div class="wrap">
-    <span class="hero-tag rv">🔧 Ростов-на-Дону · гаражная мастерская</span>
+    <span class="hero-tag rv">🔧 ВЕЛОЦИКЛ · Ростов-на-Дону · гаражная мастерская</span>
     <h1 class="rv">Ремонт велосипедов.<br><em>Честно. Быстро. С душой.</em></h1>
     <p class="lede rv">Не офисный сервис, а настоящий гараж: профинструмент, оригинальные запчасти, стена покрышек Maxxis и гарантия 6 месяцев на все работы. Чиним всё — от заплатки камеры до полной переборки эндуро-байка.</p>
     <div class="hero-cta rv">
@@ -432,16 +443,10 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
   <div class="wrap">
     <div class="sec-head rv">
       <div><span class="kicker">Фото работ и мастерской</span><h2 style="color:#fff">Гараж, который <em>не стыдно показать</em></h2></div>
-      <p>Стена в покрышках, постеры, верстак с профинструментом. Кликай по фото — откроется крупно.</p>
+      <p>Подразделы ниже листаются как витрина: мастерская, ремонт, резина, байки клиентов. Кликай по фото — откроется крупно.</p>
     </div>
-    <div class="g-grid rv" id="gGrid">
-      <figure class="g-tile" data-cap="Стена Maxxis: Assegai, DHR II, Ikon — всё в наличии"><span class="idx">01</span><img id="w1" src="garage-hero.jpg.JPG" alt="Стена покрышек Maxxis" style="object-position:20% 25%"><figcaption>Стена Maxxis — витрина наличия</figcaption></figure>
-      <figure class="g-tile" data-cap="Pulp Fiction и Harley-Davidson: атмосфера гаража"><span class="idx">02</span><img id="w2" src="garage-hero.jpg.JPG" alt="Постеры в мастерской" style="object-position:82% 22%"><figcaption>Постеры — характер мастерской</figcaption></figure>
-      <figure class="g-tile" data-cap="Tan-wall покрышки: классика для трейла и гравела"><span class="idx">03</span><img id="w3" src="garage-hero.jpg.JPG" alt="Покрышки с бежевой боковиной" style="object-position:30% 62%"><figcaption>Tan-wall — отдельная любовь</figcaption></figure>
-      <figure class="g-tile" data-cap="Бирюзовый эндуро-байк на обслуживании"><span class="idx">04</span><img id="w4" src="garage-hero.jpg.JPG" alt="Велосипед в мастерской" style="object-position:45% 88%"><figcaption>Байк клиента на переборке</figcaption></figure>
-      <figure class="g-tile" data-cap="High Roller II и Rekon Race — грязь и скорость"><span class="idx">05</span><img id="w5" src="garage-hero.jpg.JPG" alt="Модели покрышек крупно" style="object-position:55% 40%"><figcaption>Резина под любые условия</figcaption></figure>
-      <figure class="g-tile" data-cap="CST и Maxxis в коробках — заказ под клиента за 3–5 дней"><span class="idx">06</span><img id="w6" src="garage-hero.jpg.JPG" alt="Коробки с резиной" style="object-position:95% 60%"><figcaption>Склад: наличие и заказ</figcaption></figure>
-    </div>
+    <div class="chips rv" id="gTabs" role="tablist" aria-label="Подразделы галереи"></div>
+    <div class="g-grid rv" id="gGrid"></div>
   </div>
 </section>
 
@@ -468,7 +473,7 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
       </div>
       <div class="picker rv">
         <h3>🛞 Подбор покрышки за 10 секунд</h3>
-        <p>Выбери три параметра — покажем модель, ширину и компаунд под твои условия.</p>
+        <p>Выбери параметры — покажем модель, ширину и компаунд под твои условия.</p>
         <div class="pk-row">
           <div class="pk-field"><label for="pStyle">Стиль катания</label>
             <select id="pStyle"><option value="city">Город / асфальт</option><option value="gravel">Гравий / дорожки</option><option value="xc">XC / марафон</option><option value="trail" selected>Трейл</option><option value="enduro">Эндуро / парк</option><option value="mud">Грязь / зима</option></select></div>
@@ -490,7 +495,7 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
 
 <section class="sec" id="garage">
   <div class="wrap gr-grid">
-    <div class="gr-photo rv" id="garageImg" role="img" aria-label="Мастерская ВЕЛОГАРАЖ"></div>
+    <div class="gr-photo rv" id="garageImg" role="img" aria-label="Мастерская ВЕЛОЦИКЛ"></div>
     <div class="rv">
       <span class="kicker">Не сервис, а гараж</span>
       <h2 style="font-size:clamp(1.9rem,4vw,3rem)">Мы фанаты, <em style="font-style:normal;color:var(--orange-hot)">а не менеджеры</em></h2>
@@ -568,7 +573,7 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
       <p>Живёшь не в Ростове? Привози или отправляй байк транспортной — сделаем и вернём с гарантией.</p>
     </div>
     <div class="dl-grid rv">
-      <div class="dl-card"><h4>Обсуждаем задачу</h4><p>Пишешь в WhatsApp, описываешь проблему или заказ. Оцениваем сроки и стоимость онлайн.</p></div>
+      <div class="dl-card"><h4>Обсуждаем задачу</h4><p>Пишешь в WhatsApp, Telegram или MAX, описываешь проблему или заказ. Оцениваем сроки и стоимость онлайн.</p></div>
       <div class="dl-card"><h4>Привозишь / отправляешь</h4><p>Лично в гараж или ТК. Подскажем, как разобрать и упаковать байк, чтобы доехал целым.</p></div>
       <div class="dl-card"><h4>Делаем с фотоотчётом</h4><p>Диагностика, смета, работа. Фото и видео процесса — тебе в мессенджер.</p></div>
       <div class="dl-card"><h4>Отправляем обратно</h4><p>Надёжная упаковка, отправка в твой регион. Гарантия 6 месяцев действует везде.</p></div>
@@ -585,13 +590,15 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
     </div>
     <div class="ct-grid rv">
       <div class="ct-list">
+        <div class="ct-item"><span class="ic ic-max">MAX</span><div><h4>MAX — звонок и сообщения</h4><p><a href="https://max.ru/" target="_blank" rel="noopener">Открыть MAX</a> — пиши или звони, отвечаем быстрее всего</p></div></div>
+        <div class="ct-item"><span class="ic ic-wa"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.9-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.7.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4.1.2.1.7-.1 1.3Z"/></svg></span><div><h4>WhatsApp</h4><p><a href="https://wa.me/79001234567" target="_blank" rel="noopener">Написать в WhatsApp</a> — фото проблемы кидай сразу, ответим сметой</p></div></div>
+        <div class="ct-item"><span class="ic ic-tg"><svg viewBox="0 0 24 24"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6 8.4-7.6c.4-.3-.1-.5-.6-.2L7.5 13.4 3 12c-1-.3-1-1 .2-1.4L20.6 3.2c.8-.3 1.5.2 1.3 1.4Z"/></svg></span><div><h4>Telegram</h4><p><a href="https://t.me/" target="_blank" rel="noopener">Открыть Telegram</a> — звонок или сообщение, как удобнее</p></div></div>
+        <div class="ct-item"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></span><div><h4>Телефон</h4><a href="tel:+79001234567">+7 (900) 123-45-67</a></div></div>
         <div class="ct-item"><span class="ic">📍</span><div><h4>Адрес</h4><p>г. Ростов-на-Дону, ул. Велосипедная, 1<br>ГК «Колёса», бокс 42</p><a href="https://yandex.ru/maps/?text=Ростов-на-Дону%20велосипедная%201" target="_blank" rel="noopener">Построить маршрут →</a></div></div>
         <div class="ct-item"><span class="ic">🕒</span><div><h4>Режим работы</h4><p>Пн–Пт: 10:00–20:00 · Сб–Вс: 11:00–18:00<br>Срочный ремонт — без записи</p></div></div>
-        <div class="ct-item"><span class="ic">📞</span><div><h4>Телефон</h4><a href="tel:+79001234567">+7 (900) 123-45-67</a></div></div>
-        <div class="ct-item"><span class="ic">💬</span><div><h4>Мессенджеры</h4><p><a href="https://wa.me/79001234567" target="_blank" rel="noopener">WhatsApp</a> · <a href="https://t.me/" target="_blank" rel="noopener">Telegram</a> — фото проблемы кидай сразу, ответим сметой</p></div></div>
         <div class="ct-item"><span class="ic">🅿️</span><div><h4>Парковка</h4><p>Место для машины и велосипеда прямо у бокса. Можно оставить байк на день.</p></div></div>
       </div>
-      <div class="ct-map"><iframe title="Карта: ВЕЛОГАРАЖ Ростов-на-Дону" src="https://yandex.ru/map-widget/v1/?ll=39.7233%2C47.2357&z=12" loading="lazy" allowfullscreen></iframe></div>
+      <div class="ct-map"><iframe title="Карта: ВЕЛОЦИКЛ Ростов-на-Дону" src="https://yandex.ru/map-widget/v1/?ll=39.7233%2C47.2357&z=12" loading="lazy" allowfullscreen></iframe></div>
     </div>
   </div>
 </section>
@@ -599,19 +606,39 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
 <footer>
   <div class="wrap">
     <div class="ft">
-      <a class="logo" href="#top"><span class="nut"></span>ВЕЛО<b style="color:var(--orange-soft)">ГАРАЖ</b></a>
+      <a class="logo" href="#top">
+        <span class="logo-badge">
+          <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+            <g class="b-teeth">
+              <use href="#tooth"/><use href="#tooth" transform="rotate(18 100 100)"/><use href="#tooth" transform="rotate(36 100 100)"/><use href="#tooth" transform="rotate(54 100 100)"/><use href="#tooth" transform="rotate(72 100 100)"/><use href="#tooth" transform="rotate(90 100 100)"/><use href="#tooth" transform="rotate(108 100 100)"/><use href="#tooth" transform="rotate(126 100 100)"/><use href="#tooth" transform="rotate(144 100 100)"/><use href="#tooth" transform="rotate(162 100 100)"/><use href="#tooth" transform="rotate(180 100 100)"/><use href="#tooth" transform="rotate(198 100 100)"/><use href="#tooth" transform="rotate(216 100 100)"/><use href="#tooth" transform="rotate(234 100 100)"/><use href="#tooth" transform="rotate(252 100 100)"/><use href="#tooth" transform="rotate(270 100 100)"/><use href="#tooth" transform="rotate(288 100 100)"/><use href="#tooth" transform="rotate(306 100 100)"/><use href="#tooth" transform="rotate(324 100 100)"/><use href="#tooth" transform="rotate(342 100 100)"/>
+            </g>
+            <circle class="b-disc" cx="100" cy="100" r="84"/>
+            <circle class="b-ring1" cx="100" cy="100" r="74"/>
+            <circle class="b-ring2" cx="100" cy="100" r="56"/>
+            <circle class="b-ring3" cx="100" cy="100" r="40"/>
+            <rect class="b-band" x="4" y="80" width="192" height="40" rx="6"/>
+            <text class="b-text" x="100" y="109">ВЕЛОЦИКЛ</text>
+          </svg>
+        </span>
+        <span class="logo-txt">ВЕЛОЦИКЛ<small>гаражная веломастерская · Ростов-на-Дону</small></span>
+      </a>
       <div class="ft-soc">
-        <a href="https://wa.me/79001234567" aria-label="WhatsApp">💬</a>
-        <a href="https://t.me/" aria-label="Telegram">✈️</a>
-        <a href="tel:+79001234567" aria-label="Позвонить">📞</a>
-        <a href="#raboty" aria-label="Фото работ">📷</a>
+        <a class="f-max" href="https://max.ru/" target="_blank" rel="noopener" aria-label="MAX">MAX</a>
+        <a href="https://wa.me/79001234567" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.9-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.7.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4.1.2.1.7-.1 1.3Z"/></svg></a>
+        <a href="https://t.me/" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6 8.4-7.6c.4-.3-.1-.5-.6-.2L7.5 13.4 3 12c-1-.3-1-1 .2-1.4L20.6 3.2c.8-.3 1.5.2 1.3 1.4Z"/></svg></a>
+        <a href="tel:+79001234567" aria-label="Позвонить"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></a>
       </div>
     </div>
-    <div class="ft-copy"><span>© 2026 ВЕЛОГАРАЖ · Ростов-на-Дону · ремонт, Maxxis, хранение, бронеплёнка</span><span>Сделано с любовью к велосипедам 🚵</span></div>
+    <div class="ft-copy"><span>© 2026 ВЕЛОЦИКЛ · Ростов-на-Дону · ремонт, Maxxis, хранение, бронеплёнка</span><span>Сделано с любовью к велосипедам 🚵</span></div>
   </div>
 </footer>
 
-<a class="wa" href="https://wa.me/79001234567" aria-label="Написать в WhatsApp">💬</a>
+<div class="dock" aria-label="Быстрая связь">
+  <a class="d-max" href="https://max.ru/" target="_blank" rel="noopener" data-tip="MAX · звонок и чат" aria-label="MAX">MAX</a>
+  <a class="d-wa" href="https://wa.me/79001234567" target="_blank" rel="noopener" data-tip="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4 0-1 .1-3.3-.9-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.7.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.2.5.3.6.4.1.2.1.7-.1 1.3Z"/></svg></a>
+  <a class="d-tg" href="https://t.me/" target="_blank" rel="noopener" data-tip="Telegram · звонок" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6 8.4-7.6c.4-.3-.1-.5-.6-.2L7.5 13.4 3 12c-1-.3-1-1 .2-1.4L20.6 3.2c.8-.3 1.5.2 1.3 1.4Z"/></svg></a>
+  <a class="d-tel" href="tel:+79001234567" data-tip="Позвонить" aria-label="Позвонить"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg></a>
+</div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фото">
   <button class="lb-close" id="lbClose" aria-label="Закрыть">✕</button>
@@ -621,64 +648,16 @@ footer{background:var(--asphalt);color:#C9B79F;padding:44px 0 26px}
   <div class="lb-cap" id="lbCap"></div>
 </div>
 
-<!-- ================= FOTO STUDIO — owner only ================= -->
-<div class="studio" id="studio" role="dialog" aria-modal="true" aria-label="Фото-студия владельца">
-  <div class="st-head">
-    <div class="wrap">
-      <div><h2>📷 Фото-студия</h2><p><b>Режим владельца.</b> Клиенты эту студию не видят: вход запоминается только в твоём браузере. Кидай все фото разом (3.5–5 МБ — нормально): сожмём, разложим по слотам и отдадим ZIP для GitHub.</p></div>
-      <button class="btn btn-sm btn-ghost-light" id="exitOwner">🚪 Выйти из режима владельца</button>
-      <button class="btn btn-hot btn-sm" id="closeStudio">✕ Закрыть</button>
-    </div>
-  </div>
-  <div class="wrap st-grid">
-    <aside class="st-side">
-      <div class="st-panel">
-        <h3>⚙️ Обработка — применяется сразу</h3>
-        <div class="st-ctl"><label>Качество JPEG <output id="oQ">78</output></label><input type="range" id="cQ" min="40" max="95" value="78"></div>
-        <div class="st-ctl"><label>Макс. ширина, px <output id="oW">1600</output></label><input type="range" id="cW" min="800" max="2560" step="80" value="1600"></div>
-        <div class="st-ctl"><label>Насыщенность <output id="oS">118%</output></label><input type="range" id="cS" min="60" max="180" value="118"></div>
-        <div class="st-ctl"><label>Яркость <output id="oB">104%</output></label><input type="range" id="cB" min="70" max="140" value="104"></div>
-        <div class="st-ctl"><label>Контраст <output id="oC">108%</output></label><input type="range" id="cC" min="70" max="150" value="108"></div>
-        <div class="st-ctl"><label>Кадрирование (фокус)</label><select id="cF"><option value="center" selected>Центр</option><option value="top">Верх</option><option value="bottom">Низ</option><option value="left">Лево</option><option value="right">Право</option></select></div>
-        <div class="st-ctl"><label>Формат файла</label><select id="cFmt"><option value="jpeg" selected>JPEG (.jpg)</option><option value="webp">WebP (.webp)</option></select></div>
-        <div class="st-btns">
-          <button class="btn btn-turf btn-sm" id="btnAuto">🧲 Авто-распределить по слотам</button>
-          <button class="btn btn-ghost btn-sm" id="btnReset">↺ Сбросить настройки</button>
-          <button class="btn btn-hot" id="btnZip">📦 Скачать ZIP для GitHub</button>
-        </div>
-        <div class="st-total" style="margin-top:12px"><span>Вес пакета:</span><b id="stTotal" class="ok">0 КБ</b></div>
-      </div>
-      <div class="st-panel">
-        <h3>🎯 Превью главного экрана</h3>
-        <div class="st-preview" id="stPrev"><span>hero.jpg</span></div>
-      </div>
-      <div class="st-panel">
-        <h3>🗂 Чё куда: карта слотов</h3>
-        <div class="slotboard" id="slotBoard"></div>
-      </div>
-    </aside>
-    <main>
-      <div class="drop" id="drop" tabindex="0" role="button" aria-label="Добавить фото">
-        <div class="big">📸</div>
-        <h3>Перетащи сюда все фото разом</h3>
-        <p>или кликни и выбери файлы. originals <b>3.5–5 МБ</b> → на выходе <b>150–400 КБ</b> без заметной потери качества. Ничего никуда не отправляется — всё считается в твоём браузере.</p>
-        <input type="file" id="fileIn" accept="image/*" multiple hidden>
-      </div>
-      <div class="st-cards" id="stCards"></div>
-      <div class="st-hint"><b>Как это работает:</b> студия сама называет файлы по слотам (hero.jpg, maxxis.jpg, garage.jpg, work-01.jpg…). Распакуй ZIP и загрузи файлы в репозиторий рядом с index.html — сайт подхватит их автоматически, код править не нужно. Пустые слоты останутся с текущим фото стены.</div>
-    </main>
-  </div>
-</div>
-
 <script>
 (function(){
 'use strict';
 var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
-var DEFAULT='garage-hero.jpg.JPG';
+var WALL='garage-hero.jpg.JPG';
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 /* ---------- fallback if repo photo missing ---------- */
 var probe=new Image();
-probe.onerror=function(){document.documentElement.classList.add('no-photo');$$('.g-tile img').forEach(function(im){im.style.display='none';im.parentNode.style.backgroundImage='var(--tread)';im.parentNode.style.backgroundSize='160px';});};
-probe.src=DEFAULT;
+probe.onerror=function(){document.documentElement.classList.add('no-photo');};
+probe.src=WALL;
 /* ---------- header / nav ---------- */
 var hdr=$('#hdr'),burger=$('#burger'),links=$('#navLinks');
 addEventListener('scroll',function(){hdr.classList.toggle('scrolled',scrollY>10);},{passive:true});
@@ -711,192 +690,94 @@ function pick(){
  if(cond==='wet'&&s!=='city'&&s!=='gravel')comp=comp.replace('MaxxTerra','MaxxGrip').replace('MaxxSpeed','MaxxGrip');
  if(cond==='dry'&&(s==='trail'||s==='enduro'))comp=comp.replace('MaxxGrip','MaxxTerra');
  var casing=tube==='tr'?'TR (бескамерка)':'Tube (камера)';
- var avail=sz==='26″'?'В 26″ наличие ограничено: High Roller II, Ikon, Crossmark II — уточняй в WhatsApp.':sz==='27.5″'?'В 27.5″ есть почти вся линейка, включая WT-версии.':'В 29″ — полный ассортимент ходовых моделей.';
+ var avail=sz==='26″'?'В 26″ наличие ограничено: High Roller II, Ikon, Crossmark II — уточняй в мессенджере.':sz==='27.5″'?'В 27.5″ есть почти вся линейка, включая WT-версии.':'В 29″ — полный ассортимент ходовых моделей.';
  var press=sz==='29″'?'≈1.6–1.9 бар':sz==='27.5″'?'≈1.5–1.8 бар':'≈1.7–2.0 бар';
  $('#pkOut').innerHTML='<b>'+m.f+' → '+m.r+'</b><div class="tags"><span>'+sz+'</span><span>'+m.w+'</span><span>'+comp+'</span><span>'+casing+'</span></div><p>'+m.note+' '+avail+' Давление для старта: '+press+' (под вес 75–85 кг).</p>';
 }
 ['pStyle','pSize','pCond','pTube'].forEach(function(id){$('#'+id).addEventListener('change',pick);});pick();
+/* ---------- gallery subsections ----------
+   Фото попадают в подразделы через файлы рядом с index.html:
+   photos.json — манифест {shop:[{src,cap,pos}],repair:[...],tires:[...],bikes:[...],wrap:[...],storage:[...]}
+   либо одиночные файлы shop-01.jpg … storage-06.jpg (jpg/webp). Пустые подразделы не показываются. */
+var CATS=[
+ {key:'shop',label:'Мастерская'},
+ {key:'repair',label:'Ремонт и ТО'},
+ {key:'tires',label:'Покрышки Maxxis'},
+ {key:'bikes',label:'Байки клиентов'},
+ {key:'wrap',label:'Бронеплёнка'},
+ {key:'storage',label:'Хранение'}
+];
+var items={
+ shop:[
+  {src:WALL,pos:'20% 25%',cap:'Стена Maxxis — витрина наличия'},
+  {src:WALL,pos:'82% 22%',cap:'Постеры — характер мастерской'},
+  {src:WALL,pos:'45% 88%',cap:'Байк клиента на переборке'},
+  {src:WALL,pos:'95% 60%',cap:'Склад: наличие и заказ'}
+ ],
+ tires:[
+  {src:WALL,pos:'30% 62%',cap:'Tan-wall — отдельная любовь'},
+  {src:WALL,pos:'55% 40%',cap:'High Roller II и Rekon Race — грязь и скорость'},
+  {src:WALL,pos:'12% 40%',cap:'Assegai и DHR II — эндуро-связка'}
+ ]
+};
+var curCat='all',lbList=[];
+function catLabel(k){for(var i=0;i<CATS.length;i++)if(CATS[i].key===k)return CATS[i].label;return k;}
+function activeCats(){return CATS.filter(function(c){return items[c.key]&&items[c.key].length;});}
+function renderTabs(){
+ var t=$('#gTabs'),html='<button class="chip'+(curCat==='all'?' act':'')+'" data-g="all" role="tab">Все<sup>'+lbCount('all')+'</sup></button>';
+ activeCats().forEach(function(c){html+='<button class="chip'+(curCat===c.key?' act':'')+'" data-g="'+c.key+'" role="tab">'+esc(c.label)+'<sup>'+items[c.key].length+'</sup></button>';});
+ t.innerHTML=html;
+}
+function lbCount(k){var n=0;activeCats().forEach(function(c){if(k==='all'||k===c.key)n+=items[c.key].length;});return n;}
+function currentList(){
+ var out=[];
+ activeCats().forEach(function(c){if(curCat==='all'||curCat===c.key){items[c.key].forEach(function(it){out.push({src:it.src,pos:it.pos||'center',cap:it.cap||catLabel(c.key),cat:c.key});});}});
+ return out;
+}
+function renderGrid(){
+ lbList=currentList();
+ $('#gGrid').innerHTML=lbList.map(function(it,i){
+  return '<figure class="g-tile" data-i="'+i+'" tabindex="0" role="button" aria-label="'+esc(it.cap)+'">'
+   +'<span class="idx">'+String(i+1).padStart(2,'0')+'</span>'
+   +'<span class="g-cat">'+esc(catLabel(it.cat))+'</span>'
+   +'<img src="'+esc(it.src)+'" alt="'+esc(it.cap)+'" style="object-position:'+esc(it.pos)+'" loading="lazy">'
+   +'<figcaption>'+esc(it.cap)+'</figcaption></figure>';
+ }).join('');
+}
+$('#gTabs').addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;curCat=b.dataset.g;renderTabs();renderGrid();});
+$('#gGrid').addEventListener('click',function(e){var t=e.target.closest('.g-tile');if(t)openLb(+t.dataset.i);});
+$('#gGrid').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){var t=e.target.closest('.g-tile');if(t){e.preventDefault();openLb(+t.dataset.i);}}});
+renderTabs();renderGrid();
 /* ---------- lightbox ---------- */
-var tiles=$$('.g-tile'),lb=$('#lb'),li=0;
-function openLb(i){li=(i+tiles.length)%tiles.length;var im=tiles[li].querySelector('img');$('#lbImg').src=im.src;$('#lbImg').style.objectPosition=im.style.objectPosition||'center';$('#lbCap').textContent=tiles[li].dataset.cap;lb.classList.add('open');document.body.style.overflow='hidden';}
+var lb=$('#lb'),li=0;
+function openLb(i){if(!lbList.length)return;li=(i+lbList.length)%lbList.length;var it=lbList[li];$('#lbImg').src=it.src;$('#lbImg').style.objectPosition=it.pos;$('#lbCap').textContent=catLabel(it.cat)+' · '+it.cap;lb.classList.add('open');document.body.style.overflow='hidden';}
 function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
-tiles.forEach(function(t,i){t.addEventListener('click',function(){openLb(i);});});
 $('#lbClose').addEventListener('click',closeLb);
 $('#lbPrev').addEventListener('click',function(){openLb(li-1);});
 $('#lbNext').addEventListener('click',function(){openLb(li+1);});
 lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
 addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')openLb(li-1);if(e.key==='ArrowRight')openLb(li+1);});
-/* ---------- override loader: site picks up exported files ---------- */
-function tryLoad(base,cb){var exts=['jpg','webp'],i=0;(function next(){if(i>=exts.length)return;var im=new Image();im.onload=function(){cb(im.src);};im.onerror=function(){i++;next();};im.src=base+'.'+exts[i];})();}
+/* ---------- asset overrides: hero / maxxis / garage / logo ---------- */
+function tryLoad(base,cb){var exts=['jpg','webp','png'],i=0;(function next(){if(i>=exts.length)return;var im=new Image();im.onload=function(){cb(im.src);};im.onerror=function(){i++;next();};im.src=base+'.'+exts[i];})();}
 tryLoad('hero',function(src){heroBg.style.backgroundImage='url("'+src+'")';});
 tryLoad('maxxis',function(src){$('#maxxisImg').style.backgroundImage='url("'+src+'")';});
 tryLoad('garage',function(src){$('#garageImg').style.backgroundImage='url("'+src+'")';});
-for(var wi=1;wi<=6;wi++){(function(n){tryLoad('work-0'+n,function(src){var im=$('#w'+n);im.src=src;im.style.display='';im.parentNode.style.backgroundImage='none';});})(wi);}
-/* ================= OWNER GATE ================= */
-var OWNER_KEY='vg_owner';
-function ownerFlag(){try{return localStorage.getItem(OWNER_KEY)==='1';}catch(e){return false;}}
-function setOwner(v){try{if(v)localStorage.setItem(OWNER_KEY,'1');else localStorage.removeItem(OWNER_KEY);}catch(e){} document.documentElement.classList.toggle('owner',!!v);}
-var studio=$('#studio');
-function openStudio(){studio.classList.add('open');document.body.style.overflow='hidden';renderSlots();}
-function closeStudio(){studio.classList.remove('open');document.body.style.overflow='';}
-$('#closeStudio').addEventListener('click',closeStudio);
-$('#exitOwner').addEventListener('click',function(){setOwner(false);closeStudio();});
-/* owner-only floating button (created always, shown only via html.owner) */
-var fab=document.createElement('button');
-fab.className='owner-fab';fab.type='button';fab.innerHTML='📷';
-fab.title='Фото-студия (режим владельца)';fab.setAttribute('aria-label','Открыть фото-студию владельца');
-fab.addEventListener('click',openStudio);
-document.body.appendChild(fab);
-/* entry 1: secret URL #studio / #foto / ?studio=1 */
-var hash=location.hash.replace('#','').toLowerCase();
-var qs=new URLSearchParams(location.search);
-if(hash==='studio'||hash==='foto'||qs.has('studio')){setOwner(true);history.replaceState(null,'',location.pathname);openStudio();}
-else{setOwner(ownerFlag());}
-/* entry 2: five quick clicks on the spinning logo nut */
-var nut=$('#logoNut'),nutClicks=0,nutTimer=null;
-nut.addEventListener('click',function(e){
- e.preventDefault();e.stopPropagation();
- nutClicks++;clearTimeout(nutTimer);
- nutTimer=setTimeout(function(){nutClicks=0;},1200);
- if(nutClicks>=5){nutClicks=0;setOwner(true);openStudio();}
+tryLoad('logo',function(src){$$('.logo-badge, .hero-badge').forEach(function(b){b.innerHTML='<img src="'+src+'" alt="Логотип ВЕЛОЦИКЛ">';});});
+/* ---------- gallery manifest / per-slot files ---------- */
+function probeSlot(key,n){return new Promise(function(res){var exts=['jpg','webp'],i=0;(function next(){if(i>=exts.length){res(null);return;}var src=key+'-'+String(n).padStart(2,'0')+'.'+exts[i];var im=new Image();im.onload=function(){res({src:src,cap:catLabel(key)+' · фото '+n,pos:'center'});};im.onerror=function(){i++;next();};im.src=src;})();});}
+fetch('photos.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}).then(function(m){
+ if(m&&typeof m==='object'){
+  CATS.forEach(function(c){if(Array.isArray(m[c.key])&&m[c.key].length){items[c.key]=m[c.key].filter(function(x){return x&&x.src;}).map(function(x){return {src:x.src,cap:x.cap||catLabel(c.key),pos:x.pos||'center'};});}});
+  renderTabs();renderGrid();return;
+ }
+ CATS.forEach(function(c){
+  var probes=[];for(var n=1;n<=6;n++)probes.push(probeSlot(c.key,n));
+  Promise.all(probes).then(function(found){
+   var ok=found.filter(Boolean);
+   if(ok.length){items[c.key]=ok;renderTabs();renderGrid();}
+  });
+ });
 });
-/* ================= FOTO STUDIO ================= */
-var SLOTS=[
- {id:'hero',fn:'hero',label:'Главный экран (фон)',asp:16/9,rec:'1600×900'},
- {id:'maxxis',fn:'maxxis',label:'Блок Maxxis',asp:4/3,rec:'1200×900'},
- {id:'garage',fn:'garage',label:'Блок «Гараж»',asp:1,rec:'1000×1000'},
- {id:'w1',fn:'work-01',label:'Галерея 1',asp:1,rec:'900×900'},
- {id:'w2',fn:'work-02',label:'Галерея 2',asp:1,rec:'900×900'},
- {id:'w3',fn:'work-03',label:'Галерея 3',asp:1,rec:'900×900'},
- {id:'w4',fn:'work-04',label:'Галерея 4',asp:1,rec:'900×900'},
- {id:'w5',fn:'work-05',label:'Галерея 5',asp:1,rec:'900×900'},
- {id:'w6',fn:'work-06',label:'Галерея 6',asp:1,rec:'900×900'}
-];
-var photos=[],pid=0,settings={q:78,w:1600,s:118,b:104,c:108,f:'center',fmt:'jpeg'},procTimer=null;
-/* controls */
-function bindRange(id,out,key,suf){var el=$('#'+id);el.addEventListener('input',function(){settings[key]=+el.value;$('#'+out).textContent=el.value+(suf||'');schedule();});}
-bindRange('cQ','oQ','q','');bindRange('cW','oW','w','');bindRange('cS','oS','s','%');bindRange('cB','oB','b','%');bindRange('cC','oC','c','%');
-$('#cF').addEventListener('change',function(e){settings.f=e.target.value;schedule();});
-$('#cFmt').addEventListener('change',function(e){settings.fmt=e.target.value;schedule();});
-$('#btnReset').addEventListener('click',function(){settings={q:78,w:1600,s:118,b:104,c:108,f:'center',fmt:'jpeg'};$('#cQ').value=78;$('#oQ').textContent='78';$('#cW').value=1600;$('#oW').textContent='1600';$('#cS').value=118;$('#oS').textContent='118%';$('#cB').value=104;$('#oB').textContent='104%';$('#cC').value=108;$('#oC').textContent='108%';$('#cF').value='center';$('#cFmt').value='jpeg';schedule();});
-/* dropzone */
-var drop=$('#drop'),fileIn=$('#fileIn');
-drop.addEventListener('click',function(){fileIn.click();});
-drop.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();fileIn.click();}});
-['dragenter','dragover'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('over');});});
-['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('over');});});
-drop.addEventListener('drop',function(e){addFiles(e.dataTransfer.files);});
-fileIn.addEventListener('change',function(){addFiles(fileIn.files);fileIn.value='';});
-function addFiles(list){
- var files=Array.prototype.slice.call(list).filter(function(f){return f.type.indexOf('image')===0;});
- files.forEach(function(f){
-  var url=URL.createObjectURL(f),im=new Image();
-  im.onload=function(){var p={id:++pid,name:f.name,img:im,slot:null,blob:null,url:null,size:0,ow:im.naturalWidth,oh:im.naturalHeight};photos.push(p);autoAssign();renderCards();renderSlots();schedule();};
-  im.src=url;
- });
-}
-function autoAssign(){
- var order=['hero','maxxis','garage','w1','w2','w3','w4','w5','w6'];
- photos.forEach(function(p,i){if(!p.slot)p.slot=order[Math.min(i,order.length-1)];});
- var used={};photos.forEach(function(p){if(used[p.slot]){var free=order.filter(function(s){return !used[s];})[0];p.slot=free||p.slot;}used[p.slot]=true;});
-}
-$('#btnAuto').addEventListener('click',function(){photos.forEach(function(p){p.slot=null;});autoAssign();renderCards();renderSlots();schedule();});
-/* processing */
-function schedule(){clearTimeout(procTimer);procTimer=setTimeout(processAll,140);}
-function cropRect(iw,ih,asp,focus){
- var w,h;if(iw/ih>asp){h=ih;w=Math.round(ih*asp);}else{w=iw;h=Math.round(iw/asp);}
- var x=(iw-w)/2,y=(ih-h)/2;
- if(focus==='top')y=0;if(focus==='bottom')y=ih-h;if(focus==='left')x=0;if(focus==='right')x=iw-w;
- return {x:x,y:y,w:w,h:h};
-}
-function processAll(){
- photos.forEach(function(p){
-  var slot=SLOTS.filter(function(s){return s.id===p.slot;})[0]||SLOTS[0];
-  var r=cropRect(p.ow,p.oh,slot.asp,settings.f);
-  var scale=Math.min(1,settings.w/r.w),tw=Math.max(2,Math.round(r.w*scale)),th=Math.max(2,Math.round(r.h*scale));
-  var cv=document.createElement('canvas');cv.width=tw;cv.height=th;
-  var cx=cv.getContext('2d');
-  cx.filter='saturate('+settings.s+'%) brightness('+settings.b+'%) contrast('+settings.c+'%)';
-  cx.drawImage(p.img,r.x,r.y,r.w,r.h,0,0,tw,th);
-  var mime=settings.fmt==='webp'?'image/webp':'image/jpeg';
-  cv.toBlob(function(bl){
-   if(!bl)return;
-   if(p.url)URL.revokeObjectURL(p.url);
-   p.blob=bl;p.url=URL.createObjectURL(bl);p.size=bl.size;p.tw=tw;p.th=th;
-   updateCard(p);renderSlots();updateTotal();updatePreview();
-  },mime,settings.q/100);
- });
- if(!photos.length){updateTotal();updatePreview();}
-}
-function fmtKB(b){return b>1048576?(b/1048576).toFixed(2)+' МБ':Math.round(b/1024)+' КБ';}
-function sizeClass(b){return b<350*1024?'ok':b<650*1024?'warn':'bad';}
-function updateTotal(){var t=photos.reduce(function(s,p){return s+(p.size||0);},0);var el=$('#stTotal');el.textContent=photos.length?fmtKB(t)+' · '+photos.length+' фото':'0 КБ';el.className=sizeClass(t);}
-function updatePreview(){var hp=photos.filter(function(p){return p.slot==='hero'&&p.url;})[0];var pv=$('#stPrev');pv.innerHTML='<span>hero.jpg</span>';if(hp){var im=document.createElement('img');im.src=hp.url;pv.insertBefore(im,pv.firstChild);}}
-function renderSlots(){
- var bd=$('#slotBoard');bd.innerHTML='';
- SLOTS.forEach(function(s){
-  var p=photos.filter(function(x){return x.slot===s.id;})[0];
-  var d=document.createElement('div');d.className='slot'+(p&&p.blob?' filled':'');
-  d.innerHTML='<span>'+s.label+'</span><span class="fn">'+s.fn+'.'+(settings.fmt==='webp'?'webp':'jpg')+'</span><span class="st">'+(p&&p.blob?'✓ '+fmtKB(p.size):s.rec)+'</span>';
-  bd.appendChild(d);
- });
-}
-function renderCards(){
- var grid=$('#stCards');grid.innerHTML='';
- photos.forEach(function(p){
-  var card=document.createElement('div');card.className='ph-card';card.id='pc'+p.id;
-  var opts=SLOTS.map(function(s){return '<option value="'+s.id+'"'+(p.slot===s.id?' selected':'')+'>'+s.label+' · '+s.fn+'</option>';}).join('');
-  card.innerHTML='<div class="ph-thumb"><img alt="'+p.name.replace(/"/g,'')+'"><span class="ph-size ok">…</span></div><div class="ph-body"><div class="ph-name" title="'+p.name.replace(/"/g,'')+'">'+p.name+' · '+p.ow+'×'+p.oh+'</div><select aria-label="Слот">'+opts+'</select><div class="ph-actions"><button class="btn btn-turf btn-sm dl">⬇ Скачать</button><button class="ph-del" title="Убрать">🗑</button></div></div>';
-  card.querySelector('select').addEventListener('change',function(e){p.slot=e.target.value;renderSlots();schedule();});
-  card.querySelector('.dl').addEventListener('click',function(){if(p.blob)downloadBlob(p.blob,fileName(p));});
-  card.querySelector('.ph-del').addEventListener('click',function(){if(p.url)URL.revokeObjectURL(p.url);photos=photos.filter(function(x){return x!==p;});renderCards();renderSlots();updateTotal();updatePreview();});
-  grid.appendChild(card);updateCard(p);
- });
-}
-function updateCard(p){
- var card=$('#pc'+p.id);if(!card)return;
- if(p.url){card.querySelector('img').src=p.url;var sz=card.querySelector('.ph-size');sz.textContent=fmtKB(p.size)+' · '+p.tw+'×'+p.th;sz.className='ph-size '+sizeClass(p.size);}
- card.querySelector('select').value=p.slot;
-}
-function fileName(p){var s=SLOTS.filter(function(x){return x.id===p.slot;})[0]||SLOTS[0];return s.fn+'.'+(settings.fmt==='webp'?'webp':'jpg');}
-function downloadBlob(bl,name){var a=document.createElement('a');a.href=URL.createObjectURL(bl);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},400);}
-/* ---------- ZIP (store, vanilla) ---------- */
-var CRC_T=(function(){var t=new Uint32Array(256);for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
-function crc32(u){var c=0xFFFFFFFF;for(var i=0;i<u.length;i++)c=CRC_T[(c^u[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
-function makeZip(files){
- var parts=[],central=[],offset=0,enc=new TextEncoder();
- files.forEach(function(f){
-  var name=enc.encode(f.name),crc=crc32(f.data),n=f.data.length;
-  var lh=new DataView(new ArrayBuffer(30));
-  lh.setUint32(0,0x04034b50,true);lh.setUint16(4,20,true);lh.setUint16(6,0x0800,true);lh.setUint16(8,0,true);lh.setUint16(10,0,true);lh.setUint16(12,0,true);
-  lh.setUint32(14,crc,true);lh.setUint32(18,n,true);lh.setUint32(22,n,true);lh.setUint16(26,name.length,true);lh.setUint16(28,0,true);
-  parts.push(new Uint8Array(lh.buffer),name,f.data);
-  var ch=new DataView(new ArrayBuffer(46));
-  ch.setUint32(0,0x02014b50,true);ch.setUint16(4,20,true);ch.setUint16(6,20,true);ch.setUint16(8,0x0800,true);ch.setUint16(10,0,true);ch.setUint16(12,0,true);ch.setUint16(14,0,true);
-  ch.setUint32(16,crc,true);ch.setUint32(20,n,true);ch.setUint32(24,n,true);ch.setUint16(28,name.length,true);
-  ch.setUint32(42,offset,true);
-  central.push(new Uint8Array(ch.buffer),name);
-  offset+=30+name.length+n;
- });
- var cs=central.reduce(function(s,p){return s+p.length;},0);
- var end=new DataView(new ArrayBuffer(22));
- end.setUint32(0,0x06054b50,true);end.setUint16(8,files.length,true);end.setUint16(10,files.length,true);end.setUint32(12,cs,true);end.setUint32(16,offset,true);
- return new Blob(parts.concat(central,[new Uint8Array(end.buffer)]),{type:'application/zip'});
-}
-$('#btnZip').addEventListener('click',function(){
- var filled=photos.filter(function(p){return p.blob;});
- if(!filled.length){alert('Сначала добавь фото — перетащи их в область выше.');return;}
- var btn=this;btn.disabled=true;btn.textContent='⏳ Собираем ZIP…';
- Promise.all(filled.map(function(p){return p.blob.arrayBuffer().then(function(ab){return {name:fileName(p),data:new Uint8Array(ab)};});})).then(function(files){
-  var manifest='ФОТО-ПЛАН ВЕЛОГАРАЖ — чё куда ложится\n======================================\n';
-  SLOTS.forEach(function(s){var p=filled.filter(function(x){return x.slot===s.id;})[0];manifest+=s.fn+'.'+(settings.fmt==='webp'?'webp':'jpg')+'  →  '+s.label+'  (рекоменд. '+s.rec+')  '+(p?'✓ '+fmtKB(p.size):'— пусто, останется текущее фото')+'\n';});
-  manifest+='\nКак залить: распакуй ZIP и загрузи файлы в репозиторий kruzhkin/velomaster рядом с index.html (Add file → Upload files → Commit). Сайт подхватит их сам.\nНастройки: качество '+settings.q+', ширина ≤'+settings.w+'px, насыщенность '+settings.s+'%, яркость '+settings.b+'%, контраст '+settings.c+'%, фокус '+settings.f+', формат '+settings.fmt+'.\n';
-  files.push({name:'PHOTO-PLAN.txt',data:new TextEncoder().encode(manifest)});
-  downloadBlob(makeZip(files),'velogarazh-photos.zip');
-  btn.disabled=false;btn.textContent='📦 Скачать ZIP для GitHub';
- }).catch(function(){btn.disabled=false;btn.textContent='📦 Скачать ZIP для GitHub';alert('Не удалось собрать ZIP. Попробуй скачать фото по одному.');});
-});
-renderSlots();updateTotal();
 })();
 </script>
 </body>
