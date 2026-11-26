@@ -3,114 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Веломастерская в Ростове-на-Дону</title>
+    <title>Ремонт велосипедов | Гаражная мастерская [Твой Город]</title>
+    <meta name="description" content="Честный ремонт велосипедов в [Твой Город]. Прокачка гидравлики, сборка колес, ТО. Гаражная атмосфера, профессиональный инструмент и покрышки в наличии.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --accent: #ff6b00; /* Оранжевый под цвет твоей стены */
+            --accent-hover: #e65c00;
+            --text-main: #ffffff;
+            --text-muted: #b0b0b0;
         }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Утилиты */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-weight: bold; text-align: center; transition: 0.3s; cursor: pointer; border: none; font-size: 16px; }
+        .btn-primary { background-color: var(--accent); color: white; }
+        .btn-primary:hover { background-color: var(--accent-hover); }
+        .btn-outline { border: 2px solid var(--accent); color: var(--accent); background: transparent; }
+        .btn-outline:hover { background: var(--accent); color: white; }
+        .section { padding: 60px 0; }
+        h2 { font-size: 28px; margin-bottom: 30px; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+        h2 span { color: var(--accent); }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(18,18,18,1)), url('garage-hero.jpg') center/cover no-repeat; 
+            /* ЗАМЕНИ 'garage-hero.jpg' на имя твоего обработанного фото */
+            min-height: 90vh; display: flex; align-items: center; text-align: center; 
         }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
-        }
-        .services {
-            list-style: none;
-        }
-        .services li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .services li:before {
-            content: "🔧 ";
-        }
-        .contacts {
-            background: #ecf0f1;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        .contacts p {
-            margin: 8px 0;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: #777;
-            font-size: 0.9em;
-        }
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8em; }
-            .container { margin: 15px; }
+        .hero-content h1 { font-size: 36px; margin-bottom: 15px; line-height: 1.2; }
+        .hero-content p { font-size: 18px; color: var(--text-muted); margin-bottom: 30px; }
+        .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+
+        /* Услуги */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .service-card { background: var(--bg-card); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); }
+        .service-card h3 { margin-bottom: 10px; font-size: 20px; }
+        .service-card .price { color: var(--accent); font-size: 22px; font-weight: bold; margin: 10px 0; }
+        .service-card p { color: var(--text-muted); font-size: 14px; }
+
+        /* О гараже */
+        .about { background: var(--bg-card); }
+        .about-content { display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text ul { list-style: none; margin-top: 20px; }
+        .about-text li { margin-bottom: 10px; padding-left: 25px; position: relative; }
+        .about-text li::before { content: "🔧"; position: absolute; left: 0; }
+        .about-image { flex: 1; min-width: 300px; height: 300px; background: #333; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); }
+        
+        /* Покрышки */
+        .tires-banner { background: var(--accent); color: white; text-align: center; padding: 40px 20px; border-radius: 12px; margin: 40px 0; }
+        .tires-banner h3 { font-size: 24px; margin-bottom: 15px; }
+
+        /* Контакты */
+        .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .contact-info p { margin-bottom: 15px; font-size: 18px; }
+        .contact-info a { color: var(--accent); font-weight: bold; }
+        .map-placeholder { background: #333; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+
+        /* Плавающая кнопка */
+        .floating-wa { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1000; }
+        .floating-wa:hover { transform: scale(1.1); }
+
+        /* Адаптив */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 28px; }
+            .section { padding: 40px 0; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>🚲 Веломастерская "Педали"</h1>
-        <p>Ремонт и обслуживание велосипедов в Ростове-на-Дону</p>
-    </header>
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>РЕМОНТ ВЕЛОСИПЕДОВ<br>В [ТВОЙ ГОРОД/РАЙОН]</h1>
+            <p>Честно. Быстро. С душой. Гарантия на все работы 6 месяцев.<br>Профессиональный инструмент и оригинальные запчасти.</p>
+            <div class="hero-buttons">
+                <a href="tel:+79001234567" class="btn btn-primary">📞 Позвонить</a>
+                <a href="https://wa.me/79001234567" class="btn btn-outline">💬 Написать в WhatsApp</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="container">
-        <section>
-            <h2>О нас</h2>
-            <p>Мы занимаемся ремонтом велосипедов любой сложности. Быстро, качественно и по доступным ценам. Работаем с горными, шоссейными, городскими и детскими велосипедами.</p>
-        </section>
+    <!-- Топ услуг -->
+    <section class="section container">
+        <h2>Популярные <span>услуги</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🚴 Полное ТО велосипеда</h3>
+                <div class="price">от 2 500 ₽</div>
+                <p>Переборка втулок, настройка переключателей, тормозов, смазка цепи. Велосипед поедет как новый.</p>
+            </div>
+            <div class="service-card">
+                <h3>🔧 Срочный ремонт</h3>
+                <div class="price">от 300 ₽</div>
+                <p>Заплата камеры, настройка заднего переключателя, замена тормозных колодок. Делаем при вас за 15-30 минут.</p>
+            </div>
+            <div class="service-card">
+                <h3>💧 Прокачка гидравлики</h3>
+                <div class="price">от 800 ₽ / сторона</div>
+                <p>Работаем с Shimano, SRAM, Tektro, Magura. Специальный инструмент и оригинальные жидкости.</p>
+            </div>
+            <div class="service-card">
+                <h3>⭕ Сборка и спицовка колес</h3>
+                <div class="price">от 1 500 ₽</div>
+                <p>Исправление «восьмерок», замена спиц, установка новых покрышек и камер.</p>
+            </div>
+        </div>
+    </section>
 
-        <section>
-            <h2>Наши услуги</h2>
-            <ul class="services">
-                <li>Ремонт проколов и замена камер — от 300 ₽</li>
-                <li>Настройка переключателей скоростей — от 500 ₽</li>
-                <li>Техническое обслуживание — от 1500 ₽</li>
-                <li>Замена тормозных колодок и тросиков — от 400 ₽</li>
-                <li>Сборка и настройка колёс — от 800 ₽</li>
-                <li>Диагностика велосипеда — бесплатно</li>
-            </ul>
-        </section>
+    <!-- О мастерской -->
+    <section class="section about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>Не сервис, а <span>гараж</span></h2>
+                <p>Мы не офисные менеджеры. Мы фанаты велосипедов. У нас настоящая мастерская: стены в постерах, верстак завален профессиональным инструментом, а в углу штабелями лежат проверенные покрышки.</p>
+                <ul>
+                    <li>Даем честную диагностику бесплатно при ремонте</li>
+                    <li>Не навязываем лишние услуги</li>
+                    <li>Работаем с MTB, шоссейниками, детскими и городскими велосипедами</li>
+                    <li>В наличии ходовые покрышки и расходники</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <!-- Сюда вставишь второе фото гаража или инструмента -->
+                [Фото твоего верстака и инструмента]
+            </div>
+        </div>
+    </section>
 
-        <section class="contacts">
-            <h2>Контакты</h2>
-            <p>📍 <strong>Адрес:</strong> г. Ростов-на-Дону, ул. Примерная, 10</p>
-            <p>📞 <strong>Телефон:</strong> +7 (900) 123-45-67</p>
-            <p>⏰ <strong>Режим работы:</strong> Пн-Сб с 10:00 до 20:00</p>
-            <p>✉️ <strong>Email:</strong> velomaster@example.com</p>
-        </section>
-    </div>
+    <!-- Баннер покрышек -->
+    <section class="container">
+        <div class="tires-banner">
+            <h3>🛞 Покрышки и камеры в наличии!</h3>
+            <p>26", 27.5", 29". Слики, полуслики и агрессивный грязевой протектор.</p>
+            <br>
+            <a href="https://wa.me/79001234567?text=Здравствуйте!%20Интересуют%20покрышки%20на%20велосипед" class="btn" style="background: white; color: var(--accent);">Узнать наличие по WhatsApp</a>
+        </div>
+    </section>
 
-    <footer>
-        <p>© 2026 Веломастерская "Педали". Все права защищены.</p>
+    <!-- Контакты -->
+    <section class="section container" id="contacts">
+        <h2>Как нас <span>найти</span></h2>
+        <div class="contacts-grid">
+            <div class="contact-info">
+                <p>📍 <strong>Адрес:</strong><br>[Твой Город], [Улица, дом, ориентир "гаражный кооператив X"]</p>
+                <p>🕒 <strong>Режим работы:</strong><br>Пн-Пт: 10:00 - 20:00<br>Сб-Вс: 11:00 - 18:00</p>
+                <p>📞 <strong>Телефон:</strong><br><a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
+                <p>🅿️ Есть место, чтобы оставить велосипед или машину.</p>
+            </div>
+            <div class="map-placeholder">
+                <!-- Сюда вставишь код карты Яндекс или 2ГИС -->
+                [Здесь будет интерактивная карта Яндекс]
+            </div>
+        </div>
+    </section>
+
+    <!-- Плавающая кнопка WhatsApp -->
+    <a href="https://wa.me/79001234567" class="floating-wa" title="Написать в WhatsApp">💬</a>
+
+    <footer style="text-align: center; padding: 20px; color: var(--text-muted); font-size: 14px; border-top: 1px solid #333;">
+        © 2026 Гаражная веломастерская. Все права защищены.
     </footer>
 
 </body>
